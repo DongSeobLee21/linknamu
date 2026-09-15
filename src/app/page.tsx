@@ -22,7 +22,7 @@ export default function Home() {
       <div className="flex flex-col items-center gap-1 text-center">
         <h1 className="text-lg font-bold">유아독존</h1>
         <p className="text-sm text-black/60 dark:text-white/60">
-          이 세상에는 내가 최고다 : 요즘에는 AI에 관심이 많이 생겼네
+          이 세상에는 내가 최고다 : 요즘에는 AI에 관심이 많네
         </p>
       </div>
 
