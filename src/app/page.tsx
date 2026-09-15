@@ -1,3 +1,4 @@
+import Image from "next/image";
 import LinkCard from "@/components/LinkCard";
 
 const links = [
@@ -9,10 +10,13 @@ const links = [
 export default function Home() {
   return (
     <main className="mx-auto flex min-h-screen w-full max-w-sm flex-col items-center gap-8 px-6 py-16 sm:py-24">
-      <img
-        src="https://placehold.co/150x150/orange/white"
+      <Image
+        src="/smartlee.jpg"
         alt="프로필 사진"
+        width={150}
+        height={150}
         className="h-36 w-36 rounded-full border-2 border-black/[.12] object-cover dark:border-white/[.16]"
+        priority
       />
 
       <div className="flex flex-col items-center gap-1 text-center">
