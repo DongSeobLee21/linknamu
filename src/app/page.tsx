@@ -2,9 +2,9 @@ import Image from "next/image";
 import LinkCard from "@/components/LinkCard";
 
 const links = [
-  { label: "GitHub", href: "https://github.com/" },
-  { label: "LinkedIn", href: "https://linkedin.com/" },
-  { label: "Blog", href: "https://example.com/" },
+  { label: "🐙 깃허브", href: "https://github.com/DongSeobLee21/linknamu" },
+  { label: "✍️ 블로그", href: "https://blog.naver.com/dsl0529" },
+  { label: "📧 이메일", href: "mailto:dsl0529@naver.com" },
 ];
 
 export default function Home() {
