@@ -1,13 +1,34 @@
+"use client";
+
+import { useEffect, useState } from "react";
 import Image from "next/image";
 import LinkCard from "@/components/LinkCard";
 
 const links = [
-  { label: "🐙 깃허브", href: "https://github.com/DongSeobLee21/linknamu" },
-  { label: "✍️ 블로그", href: "https://blog.naver.com/dsl0529" },
-  { label: "📧 이메일", href: "mailto:dsl0529@naver.com" },
+  { id: "github", label: "🐙 깃허브", href: "https://github.com/DongSeobLee21/linknamu" },
+  { id: "blog", label: "✍️ 블로그", href: "https://blog.naver.com/dsl0529" },
+  { id: "email", label: "📧 이메일", href: "mailto:dsl0529@naver.com" },
 ];
 
 export default function Home() {
+  const [counts, setCounts] = useState<Record<string, number>>({});
+
+  useEffect(() => {
+    fetch("/api/clicks")
+      .then((res) => res.json())
+      .then((data) => setCounts(data.counts ?? {}))
+      .catch(() => {});
+  }, []);
+
+  function handleLinkClick(id: string) {
+    setCounts((prev) => ({ ...prev, [id]: (prev[id] ?? 0) + 1 }));
+    fetch("/api/clicks", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ id }),
+    }).catch(() => {});
+  }
+
   return (
     <main className="flex min-h-screen w-full items-center justify-center px-6 py-16 sm:py-24">
       <div className="flex w-full max-w-[380px] flex-col items-center gap-10">
@@ -34,7 +55,13 @@ export default function Home() {
 
         <div className="flex w-full flex-col gap-4">
           {links.map((link) => (
-            <LinkCard key={link.label} label={link.label} href={link.href} />
+            <LinkCard
+              key={link.id}
+              label={link.label}
+              href={link.href}
+              count={counts[link.id] ?? 0}
+              onClick={() => handleLinkClick(link.id)}
+            />
           ))}
         </div>
       </div>
