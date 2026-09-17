@@ -15,7 +15,7 @@ const geistMono = localFont({
 
 export const metadata: Metadata = {
   title: "유아독존",
-  description: "이 세상에는 내가 최고다 : 요즘에는 AI에 관심이 많네",
+  description: "이 세상에서 내가 최고다.(天上天下 唯我獨存)",
 };
 
 export default function RootLayout({

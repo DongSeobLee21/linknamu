@@ -49,7 +49,7 @@ export default function Home() {
             유아독존
           </h1>
           <p className="text-sm leading-relaxed text-[#9c8676]">
-            이 세상에는 내가 최고다 : 요즘에는 AI에 관심이 많네
+            이 세상에서 내가 최고다.(天上天下 唯我獨存)
           </p>
         </div>
 
